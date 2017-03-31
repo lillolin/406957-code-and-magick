@@ -27,16 +27,12 @@ window.renderStatistics = function (ctx, names, times) {
 
     ctx.textBaseline = 'top';
 
-    
-
-    var getRandomColor = function(name) {
-
-        var name = names[i];
-
-        if (name == 'Вы') {
+    var getRandomColor = function() {
+         
+        if (names[i] == 'Вы') {
             ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
         }
-        
+
         else {
             ctx.fillStyle = 'rgba(0, 0, 255, '+ Math.random()+')';
         }
@@ -44,7 +40,7 @@ window.renderStatistics = function (ctx, names, times) {
   
     for (var i = 0; i < times.length; i++) {
 
-        getRandomColor(name);
+        getRandomColor();
         ctx.fillRect(initialX + (barWidth+indent) * i, initialY, barWidth, - times[i] * step);
 
         ctx.fillStyle = 'rgba(0, 0, 0, 1)';
