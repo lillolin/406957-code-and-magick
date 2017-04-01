@@ -27,24 +27,28 @@ window.renderStatistics = function (ctx, names, times) {
 
     ctx.textBaseline = 'top';
 
-    var getRandomColor = function() {
-         
-        if (names[i] == 'Вы') {
+    for (var i = 0; i < 4; i++) {
+        var name = names[i];
+    }
+
+    var getRandomColor = function(name) { 
+
+        if (name === 'Вы') {
             ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
         }
 
         else {
             ctx.fillStyle = 'rgba(0, 0, 255, '+ Math.random()+')';
-        }
+        }  
     }    
-  
-    for (var i = 0; i < times.length; i++) {
+    
+    for (var i = 0; i < 4; i++) {
 
-        getRandomColor();
+        getRandomColor(names[i]);
         ctx.fillRect(initialX + (barWidth+indent) * i, initialY, barWidth, - times[i] * step);
 
         ctx.fillStyle = 'rgba(0, 0, 0, 1)';
         ctx.fillText(parseInt(times[i]), initialX + (barWidth+indent) * i, initialY - histogramHeight - 20 );
         ctx.fillText(names[i], initialX + (barWidth+indent) * i, initialY + 5 );
-    }   
+    }               
 }
