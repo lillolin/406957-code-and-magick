@@ -27,12 +27,6 @@ window.renderStatistics = function (ctx, names, times) {
 
     ctx.textBaseline = 'top';
 
-    for (var i = 0; i < 4; i++) {
-        var name = names[i];
-    }
-
-    
-
     var getRandomColor = function(name) { 
         var color
         if (name === 'Вы') {
