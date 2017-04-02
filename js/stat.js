@@ -34,17 +34,18 @@ window.renderStatistics = function (ctx, names, times) {
     var getRandomColor = function(name) { 
 
         if (name === 'Вы') {
-            ctx.fillStyle = 'rgba(255, 0, 0, 1.0)';
+            var color = 'rgba(255, 0, 0, 1.0)';
         }
 
         else {
-            ctx.fillStyle = 'rgba(0, 0, 255, '+ Math.random()+')';
+            var color = 'rgba(0, 0, 255, '+ Math.random()+')';
         }  
+    return color    
     }    
     
     for (var i = 0; i < 4; i++) {
 
-        getRandomColor(names[i]);
+        ctx.fillStyle = getRandomColor(names[i]);
         ctx.fillRect(initialX + (barWidth+indent) * i, initialY, barWidth, - times[i] * step);
 
         ctx.fillStyle = 'rgba(0, 0, 0, 1)';
