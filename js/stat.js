@@ -31,16 +31,17 @@ window.renderStatistics = function (ctx, names, times) {
         var name = names[i];
     }
 
+    
+
     var getRandomColor = function(name) { 
-
+        var color
         if (name === 'Вы') {
-            var color = 'rgba(255, 0, 0, 1.0)';
+            color = 'rgba(255, 0, 0, 1.0)';
         }
-
         else {
-            var color = 'rgba(0, 0, 255, '+ Math.random()+')';
+            color = 'rgba(0, 0, 255, '+ Math.random()+')';
         }  
-    return color    
+        return color    
     }    
     
     for (var i = 0; i < 4; i++) {
