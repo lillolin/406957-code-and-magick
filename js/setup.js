@@ -14,29 +14,19 @@ var family = ['да Марья', 'Верон', 'Мирабелла', 'Вальц
 var coatColor = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 var eyesColor = ['black', 'red', 'blue', 'yellow', 'green'];
 
-var wizards = [
-    {
-      name: wizardName[Math.floor(Math.random() *wizardName.length)] + ' ' + family[Math.floor(Math.random() *8)],
-      coatColor: coatColor[Math.floor(Math.random() *coatColor.length)], 
-      eyesColor: eyesColor[Math.floor(Math.random() *eyesColor.length)],
-    },
-    {
-      name: wizardName[Math.floor(Math.random() *wizardName.length)] + ' ' + family[Math.floor(Math.random() *8)],
-      coatColor: coatColor[Math.floor(Math.random() *coatColor.length)], 
-      eyesColor: eyesColor[Math.floor(Math.random() *eyesColor.length)],
-    },
-    {
-      name: wizardName[Math.floor(Math.random() *wizardName.length)] + ' ' + family[Math.floor(Math.random() *8)],
-      coatColor: coatColor[Math.floor(Math.random() *coatColor.length)], 
-      eyesColor: eyesColor[Math.floor(Math.random() *eyesColor.length)],
-    },
-    {
-      name: wizardName[Math.floor(Math.random() *wizardName.length)] + ' ' + family[Math.floor(Math.random() *8)],
-      coatColor: coatColor[Math.floor(Math.random() *coatColor.length)], 
-      eyesColor: eyesColor[Math.floor(Math.random() *eyesColor.length)],
-    },
-];
+var wizards = [];
 
+function generateWizards(i)  {
+
+  for (var i = 0, i < 4, i++) {
+    var randomName = Math.floor(Math.random() * wizardName.length);
+    var randomFamily = Math.floor(Math.random() *family.length);
+    var randomCoatColor = Math.floor(Math.random() * coatColor.length);
+    var randomEyesColor = Math.floor(Math.random() * eyesColor.length);
+}
+  wizards[i] = new generateWizards((wizardName[randomName] + ' ' + family[randomFamily]), coatColor[randomCoatColor],  eyesColor[randomEyesColor]);
+}
+  
 for (var i = 0; i < wizards.length; i++) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
   
@@ -45,4 +35,5 @@ for (var i = 0; i < wizards.length; i++) {
   wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
   
   similarListElement.appendChild(wizardElement);
+  }
 }
