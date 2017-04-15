@@ -14,7 +14,7 @@ var similarWizardTemplate = document.querySelector('#similar-wizard-template').c
 
 var wizards = [];
 
-var generateWizards = function(i)  {
+var generateWizards = function()  {
   wizards = [
     {  
       name: wizardName[Math.floor(Math.random() *wizardName.length)] + ' ' + family[Math.floor(Math.random() *8)],
@@ -22,12 +22,12 @@ var generateWizards = function(i)  {
       eyesColor: eyesColor[Math.floor(Math.random() *eyesColor.length)],
     }, 
   ];
+  return wizards;
 }
   
 for (var i = 0, i < 4, i++) {
-  generateWizards(i);
+  wizards[i] = generateWizards();
 }
-return wizards
 
 var renderWizard = function (wizard) {
   var wizardElement = similarWizardTemplate.cloneNode(true);
@@ -40,9 +40,9 @@ var renderWizard = function (wizard) {
 }
 
 var fragment = document.createDocumentFragment();
-  for (var i = 0; i < wizards.length; i++) {
-    fragment.appendChild(renderWizard(wizards[i]));
-  }
+for (var i = 0; i < 4; i++) {
+  fragment.appendChild(renderWizard(wizards[i]));
+}
 similarListElement.appendChild(fragment);
 
 userDialog.querySelector('.setup-similar').classList.remove('hidden');
